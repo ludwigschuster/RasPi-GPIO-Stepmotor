@@ -96,10 +96,8 @@ class Stepmotor:
 	# quarter turn
 	def turn90(self):
 		self.turn(128)
-	# turn one Step
-	def turnOneStep(self):
-		self.turn(1)
+		
 	# turn n steps
-	def turnNSteps(self, count):
+	def turnSteps(self, count):
 		for i in range (count):
-			self.turnOneStep()
+			self.turn(1)
