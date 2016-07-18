@@ -1,5 +1,6 @@
 import time as timer
 import RPi.GPIO as GPIO
+import math
 
 #class Stepmotor:
 GPIO.setmode(GPIO.BCM)
@@ -85,19 +86,18 @@ class Stepmotor:
 	def close(self):
 		GPIO.cleanup()
 	
-	# full turn
-	def turn360(self):    
-		self.turn(512)
-
-	# half turn
-	def turn180(self):
-		self.turn(256)
-
-	# quarter turn
-	def turn90(self):
-		self.turn(128)
-		
 	# turn n steps
+	#          (support with number of steps to turn)
 	def turnSteps(self, count):
 		for i in range (count):
 			self.turn(1)
+			
+	# turn n degrees (small values can lead to inaccuracy)
+	#          (support with degrees to turn)
+	def turnDegrees(self, count):
+		self.turn(round(count*512/360,0))
+		
+	# turn for translation of wheels or windlass (inaccuracies involved e.g. due to thickness of rope)
+	#          (support with distance and radius in same metric)
+	def turnDistance(self, dist, rad)
+		self.turn(round(512*dist/(2*math.pi*rad),0))
