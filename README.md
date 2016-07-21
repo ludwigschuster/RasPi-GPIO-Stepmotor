@@ -13,10 +13,9 @@ Put stepmotor.py (located in /bin) into your working direcoty and import it with
 
 Following methods are available: 
 
-*	 use `turn360()` for a full turn
-*	 use `turn180()` for a half turn
-*	 use `turn90()` for a quarter turn
-*	 use `turnNSteps(n)` for n steps
+*	 use `turnSteps(n)` for turning n steps
+*	 use `turnDegrees(n)` for turning n degrees (small values can lead to inaccuracy)
+*	 use `turnDistance(distance, radius)` turn for translation of wheels or a coil (inaccuracies involved e.g. due to thickness of rope)
 
 See the example below. 
 
@@ -27,13 +26,13 @@ from time import sleep
 print("moving started")
 motor = Stepmotor()
 print("One Step")
-motor.turnOneStep()
+motor.turnSteps(1)
 sleep(0.5)
 print("20 Steps")
-motor.turnNSteps(20)
+motor.turnSteps(20)
 sleep(0.5)
 print("quarter turn")
-motor.turn90()
+motor.turnDegrees(90)
 print("moving stopped")
 motor.close()
 ```
