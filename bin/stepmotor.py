@@ -5,7 +5,7 @@ import math
 #class Stepmotor:
 GPIO.setmode(GPIO.BCM)
 
-# This are the Pins which will be used on the raspberry Pi
+# These are the pins which will be used on the Raspberry Pi
 A=18
 B=23
 C=24
@@ -23,7 +23,7 @@ GPIO.output(C, False)
 GPIO.output(D, False)
 
 class Stepmotor:
-	# 8 steps are possible - here those 8 steps are defined
+	# 8 steps are possible - these 8 steps are defined here
 	def Step1(self):
     		GPIO.output(D, True)
     		timer.sleep (time)
@@ -86,18 +86,18 @@ class Stepmotor:
 	def close(self):
 		GPIO.cleanup()
 	
-	# turn n steps
-	#          (support with number of steps to turn)
+	# Turn n steps
+	# (supply with number of steps to turn)
 	def turnSteps(self, count):
 		for i in range (count):
 			self.turn(1)
 			
-	# turn n degrees (small values can lead to inaccuracy)
-	#          (support with degrees to turn)
+	# Turn n degrees (small values can lead to inaccuracy)
+	# (supply with degrees to turn)
 	def turnDegrees(self, count):
 		self.turn(round(count*512/360,0))
 		
-	# turn for translation of wheels or windlass (inaccuracies involved e.g. due to thickness of rope)
-	#          (support with distance and radius in same metric)
+	# Turn for translation of wheels or coil (inaccuracies involved e.g. due to thickness of rope)
+	# (supply with distance to move and radius in same metric)
 	def turnDistance(self, dist, rad)
 		self.turn(round(512*dist/(2*math.pi*rad),0))

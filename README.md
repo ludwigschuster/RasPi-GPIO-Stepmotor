@@ -9,7 +9,7 @@ The Stepmotors described there can be found [here] (http://www.ebay.de/itm/29097
 
 ##Usage
 
-Put stepmotor.py (located in /bin) into your working direcoty and import it with `from stepmotor import Stepmotor`. You can now create an object with `motor = Stepmotor()` and use this object. 
+Put stepmotor.py (located in /bin) into your working directory and import it with `from stepmotor import Stepmotor`. You can now create an object with `motor = Stepmotor()` and use this object. 
 
 Following methods are available: 
 
@@ -37,4 +37,4 @@ print("moving stopped")
 motor.close()
 ```
 
-> It is important, that you close with `close()` when you are ready. 
+> It is important, that you close with `close()` when you are done. 
